@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  goapp:
+    build:
+      context: . # Use an image built from the specified dockerfile in the current directory.
+      dockerfile: Dockerfile.goapp
+    restart: unless-stopped
