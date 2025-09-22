@@ -1,3 +1,3 @@
-module github.com/inneroot/goapp
+module github.com/inneroot/reboot
 
-go 1.21.7
+go 1.25.1
