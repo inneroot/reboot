@@ -4,10 +4,16 @@
 
 youruser ALL=(root) NOPASSWD: /sbin/reboot, /sbin/reboot -f
 
+## Health Check
+
+```bash
+curl -X GET http://your-vps-ip:8080/health
+```
+
 ## Without authentication
 
 ```bash
-curl -X POST http://your-vps-ip:8080/api/reboot \
+curl -X POST http://your-vps-ip:8080/reboot \
   -H "Content-Type: application/json" \
   -d '{"delay": 10}'
 ```
@@ -15,8 +21,7 @@ curl -X POST http://your-vps-ip:8080/api/reboot \
 ## With authentication
 
 ```bash
-curl -X POST http://your-vps-ip:8080/api/reboot \
-  -u "admin:your-auth-token" \
+curl -X POST http://your-vps-ip:8080/reboot \
   -H "Content-Type: application/json" \
-  -d '{"delay": 10, "force": false}'
+  -d '{"delay": 10, "force": false, "token": "your-auth-token"}'
 ```
