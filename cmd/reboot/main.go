@@ -9,6 +9,8 @@ import (
 	"os/exec"
 	"sync"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 type RebootRequest struct {
@@ -142,6 +144,12 @@ func (s *RebootServer) executeReboot(delay int, force bool) {
 }
 
 func main() {
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	// Get auth token from environment variable (optional)
 	authToken := os.Getenv("REBOOT_AUTH_TOKEN")
 	port := os.Getenv("PORT")
