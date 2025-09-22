@@ -1,12 +1,12 @@
 # Stage 1: Build the Go binary
-FROM golang:1.21 AS build
+FROM golang:1.25 AS build
 WORKDIR /src
 COPY . .
-RUN go build -o ./bin/goapp ./cmd/goapp/main.go
+RUN go build -o ./bin/reboot ./cmd/reboot/main.go
 
 # Stage 2: Create a minimal runtime image
 FROM scratch
-COPY --from=build /src/bin/goapp /bin/goapp
+COPY --from=build /src/bin/reboot /bin/reboot
 
 # Specify the command to run your application
-CMD ["/bin/goapp"]
+CMD ["/bin/reboot"]

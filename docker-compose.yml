@@ -1,9 +1,8 @@
-version: '3'
+version: "3"
 
 services:
-
-  goapp:
+  rebootapp:
     build:
       context: . # Use an image built from the specified dockerfile in the current directory.
-      dockerfile: Dockerfile.goapp
+      dockerfile: Dockerfile.reboot
     restart: unless-stopped
